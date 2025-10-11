@@ -2,6 +2,7 @@ package client
 
 // Define structs to hold the route paths for different API groups.
 // The struct fields (Login, Logout, etc.) are capitalized to be exported.
+
 type authRoutes struct {
 	Root           string
 	Login          string
@@ -19,6 +20,7 @@ type packageRoutes struct {
 // The main 'routes' struct that holds all the nested route groups.
 type routes struct {
 	Root     string
+	Version  string
 	Auth     authRoutes
 	Packages packageRoutes
 }
@@ -26,17 +28,17 @@ type routes struct {
 // AppRoutes is a public, pre-configured variable that you can import and use anywhere.
 // This is the single source of truth for all your backend routes.
 var AppRoutes = routes{
-	Root: "/",
+	Root:    "/",
+	Version: "v1",
 	Auth: authRoutes{
-		Root:           "/api/auth",
-		Login:          "/api/auth/login",
-		Logout:         "/api/auth/logout",
-		Register:       "/api/auth/register",
-		Me:             "/api/auth/me",
-		Refresh:        "/api/auth/token/refresh",
-		ChangePassword: "/api/auth/change-password",
+		Root:     "/auth",
+		Login:    "/auth/login",
+		Logout:   "/auth/logout",
+		Register: "/auth/register",
+		Me:       "/auth/me",
+		Refresh:  "/auth/token/refresh",
 	},
 	Packages: packageRoutes{
-		Root: "/api/packages",
+		Root: "api/v1/packages",
 	},
 }
