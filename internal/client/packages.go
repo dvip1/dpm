@@ -10,6 +10,7 @@ func (c *Client) GetPackages() (*http.Response, error) {
 	}
 	return c.httpClient.Do(req)
 }
+
 func (c *Client) GetPackageByName(name string) (*http.Response, error) {
 	url := c.BaseURL + "/" + AppRoutes.Packages.Root + "/" + name
 	req, err := http.NewRequest("GET", url, nil)

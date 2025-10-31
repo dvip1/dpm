@@ -21,6 +21,7 @@ type packageRoutes struct {
 type routes struct {
 	Root     string
 	Version  string
+	BaseUrl string
 	Auth     authRoutes
 	Packages packageRoutes
 }
@@ -30,6 +31,7 @@ type routes struct {
 var AppRoutes = routes{
 	Root:    "/",
 	Version: "v1",
+	BaseUrl: "http://localhost:8000",
 	Auth: authRoutes{
 		Root:     "/auth",
 		Login:    "/auth/login",
